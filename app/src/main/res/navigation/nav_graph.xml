@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.anadi.albumsviewerapp.ui.album.AlbumFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_album_to_photo"
+            app:destination="@id/photoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.anadi.albumsviewerapp.ui.photo.PhotoFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_photo_to_fullscreen"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/fullScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullScreenFragment"
+        android:name="com.anadi.albumsviewerapp.ui.fullscreen.FullScreenFragment"
+        android:label="fragment_photo"
+        tools:layout="@layout/fragment_photo" />
+
+</navigation>

@@ -5,36 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:layout_marginStart="@dimen/card_side_margin"
-    android:layout_marginEnd="@dimen/card_side_margin"
-    android:layout_marginBottom="@dimen/card_bottom_margin"
+    android:layout_margin="@dimen/margin_extra_small"
     android:theme="@style/Theme.MaterialComponents.Light"
     app:cardElevation="@dimen/card_elevation"
     app:cardPreventCornerOverlap="false"
     app:shapeAppearanceOverlay="@style/ShapeAppearance.Album.Card">
 
-    <FrameLayout
-        android:id="@+id/album_item"
+    <RelativeLayout
+        android:id="@+id/photo_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/album_item_image"
+            android:id="@+id/photo_item_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/album_image_height"
+            android:layout_height="@dimen/photo_image_height"
             android:adjustViewBounds="true"
             fresco:placeholderImage="@drawable/img_bowling" />
 
         <TextView
-            android:id="@+id/album_item_name"
-            style="@style/ImageDetails.Big"
+            android:id="@+id/photo_item_name"
+            style="@style/ImageDetails.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:background="@color/details_background"
-            tools:text="super Photo Info 22/12/2020 Mayami" />
+            tools:text="super Photo Info Mayami"
+            android:layout_above="@id/photo_item_time"/>
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/photo_item_time"
+            style="@style/ImageDetails.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/details_background"
+            android:gravity="end"
+            tools:text="22/12/2020 12:00:12 +0300"
+            android:layout_alignBottom="@id/photo_item_image"/>
+
+
+    </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>

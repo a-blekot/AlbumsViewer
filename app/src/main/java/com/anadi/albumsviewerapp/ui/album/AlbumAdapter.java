@@ -1,33 +1,30 @@
-package com.anadi.albumsviewerapp.adapters;
+package com.anadi.albumsviewerapp.ui.album;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anadi.albumsviewerapp.R;
-import com.anadi.albumsviewerapp.data.Album;
+import com.anadi.albumsviewerapp.model.Album;
+import com.anadi.albumsviewerapp.util.OnItemSelectedListener;
+import com.facebook.drawee.drawable.ProgressBarDrawable;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumHolder> {
-    private OnAlbumSelectedListener listener;
+    private OnItemSelectedListener listener;
 
-    //    private MainActivityContract.Presenter presenter;
-    private ArrayList<Album> albums = new ArrayList<>();
+    private List<Album> albums = new ArrayList<>();
 
-    //    public AlbumAdapter(Context context, OnAlbumSelectedListener listener, MainActivityContract.Presenter presenter) {
-    public AlbumAdapter(Context context, OnAlbumSelectedListener listener) {
+    public AlbumAdapter(OnItemSelectedListener listener) {
         this.listener = listener;
-//        this.presenter = presenter;
     }
 
     @NonNull
@@ -44,11 +41,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumHolder>
         Album album = albums.get(position);
 
         holder.name.setText(album.getName());
-
-//        Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/master/docs/static/logo.png");
-        holder.image.setImageURI(album.getImage());
-//        Picasso.get().load(album.getImage()).into(holder.image);
-//        holder.icon.setImageURI(Uri.parse(album.getImage()));
+        holder.image.setImageURI(album.getLink());
+        holder.image.getHierarchy().setProgressBarImage(new ProgressBarDrawable());
 
         holder.containerView.setTag(album);
     }
@@ -58,21 +52,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumHolder>
         return albums.size();
     }
 
-    public void setData(ArrayList<Album> albums) {
+    public void setData(List<Album> albums) {
         this.albums = albums;
         notifyDataSetChanged();
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////
-
-    public interface OnAlbumSelectedListener {
-        void onSelected(Album album);
     }
 
     class AlbumHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        public RelativeLayout containerView;
+        public FrameLayout containerView;
         public SimpleDraweeView image;
         public TextView name;
 
@@ -89,7 +77,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumHolder>
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            listener.onSelected(albums.get(position));
+
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onAlbumSelected(albums.get(position).getId());
+            }
         }
     }
 }

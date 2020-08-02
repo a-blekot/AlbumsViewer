@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="margin_extra_extra_small">2dp</dimen>
+
+    <dimen name="card_side_margin">4dp</dimen>
+    <dimen name="card_bottom_margin">8dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+
+    <dimen name="album_image_height">200dp</dimen>
+    <dimen name="photo_image_height">120dp</dimen>
+
+    <dimen name="details_small_text">12sp</dimen>
+    <dimen name="fb_text_size">20sp</dimen>
+</resources>

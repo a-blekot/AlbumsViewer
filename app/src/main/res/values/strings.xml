@@ -3,44 +3,12 @@
     <string name="facebook_app_id">339431310424566</string>
     <string name="fb_login_protocol_scheme">fb339431310424566</string>
     <string name="test_fb_id">100053921478863</string>
-    <!--    <string name="aleksey_fb_id">100005112619181</string>-->
-    <string name="login_text">Please login</string>
+
+    <string name="album_item_placceholder">No name</string>
+
+    <string name="login">Login</string>
     <string name="logout">Logout</string>
-    <string name="album_item_placceholder">Album name</string>
 
-    <!--    Access token (user_profile, photos-->
-    <string name="access_token">EAAE0tgKuZBfYBABZBuQslsf0wV3xBsEtTyEDz9vg562tJFRt0gSAwkLLKPjsVqyI6ZACNUEWB3oRqxh7jOzVPivwVeh7mbkUqcZCawCeAjkDV00bNI5MMBmlmCm6aXHkQFP9ZCoECBNfSDBkZCMsgh99Dkht8R7x0sHdosRlwyTlfAZAwpbcWc8y2oG9BG22ygSrgZCOgF1TnKdmYv6I6OTV</string>
-    <!--    <string name="access_token">EAAE0tgKuZBfYBAJhXzJR2fHwvZAMmsdnjtJpXSJGwn6RhQ79OKBQXw5wVZB4hYaPXnrOUtE3eTJ5iVrDT4nG1A1l0UBND9fVg2yfWIRqlxtukQahSVlbatRgJEGks8nVW9Kk9pFykP42z59SMrAHFkunA7ZAuggGQLFPUVIHUbDgyER3U7SzUNDSeT409qgwCHmWuF2emwNRbRO7VASA</string>-->
-    <!--    {-->
-    <!--    "id": "1536569783190094",-->
-    <!--    "name": "Алексей Блекот"-->
-    <!--    }-->
-
-
-    <!--    Name Emily      Alecichdegehd Riceescu-->
-    <!--    User ID	        100053938457584-->
-    <!--    Login email	    cuyqqio_riceescu_1596124424@tfbnw.net-->
-    <!--    Login password	m950qxlppw6-->
-
-    <!--    Name            Daniel Aledaciefedeh Letuchyberg-->
-    <!--    User ID	        100054139565458-->
-    <!--    Login email	    vbfxkqb_letuchyberg_1596124510@tfbnw.net-->
-    <!--    Login password	fp7ors0l2q0-->
-
-
-    <!--    Test users-->
-
-    <!--    https://www.facebook.com/profile.php?id=100053921478863-->
-    <!--    page id=100053921478863-->
-    <!--    Tyler Alecibadghhfc Zamoreson-->
-    <!--    -->
-    <!--    109836450823737-->
-    <!--    spxyjwamwc_1596124667@tfbnw.net-->
-    <!--    EAAE0tgKuZBfYBAIUJN94SLknaxPmiByct29lWgtvB4EgOPRMElSgPZBfT6giq5WKX02pqm0GCGaKX1avuk2sEtOY8aH4XZCuA1rf7TFFpMS4tptZBZA46MjfHBxDsEwwUNS15vkWFN1ehP82vpO2Q0cfFaL5Xnrpt2T9ZAvRnI9mThkSI3jRH98c70CPDxz4B5tVfabZAL4NOgPt4L3MhFk-->
-
-    <!--    Open Graph Test User-->
-    <!--    106419471169135-->
-    <!--    tyler_doxpaau_zamoreson@tfbnw.net-->
-    <!--    EAAE0tgKuZBfYBANTGMzfAGsg4keHf9jZC4FG9uHnWlpMN7cU8eOJyvnVWncucxIrS5sPThVosPhnj7sBFZCI1kT46xpecj8hHY0kwFzlOpHNs15ZCusWl7HkZBYEUK4iuSuWzD4CQ5ncTDZA41x1vOFCYfQ2DD47ZB2M65KCues4EaqW9pFBZADPr1BcHg6IFqBdDyvfnWWjPeYTbrURLVza-->
-
+    <string name="login_again">Please login in facebook account to view your albums.</string>
+    <string name="login_error">Some error occurred. Please login again.</string>
 </resources>

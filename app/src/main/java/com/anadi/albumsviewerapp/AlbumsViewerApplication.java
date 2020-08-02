@@ -2,7 +2,6 @@ package com.anadi.albumsviewerapp;
 
 import android.app.Application;
 
-import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.drawee.backends.pipeline.Fresco;
 

@@ -1,6 +1,5 @@
-package com.anadi.albumsviewerapp.adapters;
+package com.anadi.albumsviewerapp.ui.photo;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,28 +10,28 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anadi.albumsviewerapp.R;
-import com.anadi.albumsviewerapp.data.Photo;
+import com.anadi.albumsviewerapp.model.Photo;
+import com.anadi.albumsviewerapp.util.OnItemSelectedListener;
+import com.facebook.drawee.drawable.ProgressBarDrawable;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoHolder> {
-    private OnPhotoSelectedListener listener;
+    private OnItemSelectedListener listener;
 
-    //    private MainActivityContract.Presenter presenter;
-    private ArrayList<Photo> photos = new ArrayList<>();
+    private List<Photo> photos = new ArrayList<>();
 
-    //    public PhotoAdapter(Context context, OnAlbumSelectedListener listener, MainActivityContract.Presenter presenter) {
-    public PhotoAdapter(Context context, OnPhotoSelectedListener listener) {
+    public PhotoAdapter(OnItemSelectedListener listener) {
         this.listener = listener;
-//        this.presenter = presenter;
     }
 
     @NonNull
     @Override
     public PhotoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.album_item, parent, false);
+                .inflate(R.layout.photo_item, parent, false);
 
         return new PhotoHolder(view);
     }
@@ -41,13 +40,17 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoHolder>
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
         Photo photo = photos.get(position);
 
-        holder.name.setText(photo.getName());
+        if (photo.getName().isEmpty())
+            holder.name.setVisibility(View.GONE);
+        else {
+            holder.name.setVisibility(View.VISIBLE);
+            holder.name.setText(photo.getName());
+        }
 
-//        Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/master/docs/static/logo.png");
-        holder.image.setImageURI(photo.getImage());
-//        Picasso.get().load(album.getImage()).into(holder.image);
-//        holder.icon.setImageURI(Uri.parse(album.getImage()));
+        holder.time.setText(photo.getCreatedTime());
 
+        holder.image.setImageURI(photo.getLink());
+        holder.image.getHierarchy().setProgressBarImage(new ProgressBarDrawable());
         holder.containerView.setTag(photo);
     }
 
@@ -56,15 +59,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoHolder>
         return photos.size();
     }
 
-    public void setData(ArrayList<Photo> albums) {
-        this.photos = albums;
+    public void setData(List<Photo> photos) {
+        this.photos = photos;
         notifyDataSetChanged();
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////
-
-    public interface OnPhotoSelectedListener {
-        void onSelected(Photo album);
     }
 
     class PhotoHolder extends RecyclerView.ViewHolder
@@ -73,21 +70,26 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoHolder>
         public RelativeLayout containerView;
         public SimpleDraweeView image;
         public TextView name;
+        public TextView time;
 
         PhotoHolder(@NonNull View itemView) {
             super(itemView);
 
-            containerView = itemView.findViewById(R.id.album_item);
+            containerView = itemView.findViewById(R.id.photo_item);
             containerView.setOnClickListener(this);
 
-            image = itemView.findViewById(R.id.album_item_image);
-            name = itemView.findViewById(R.id.album_item_name);
+            image = itemView.findViewById(R.id.photo_item_image);
+            name = itemView.findViewById(R.id.photo_item_name);
+            time = itemView.findViewById(R.id.photo_item_time);
         }
 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            listener.onSelected(photos.get(position));
+
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onPhotoSelected(position);
+            }
         }
     }
 }

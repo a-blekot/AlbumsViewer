@@ -7,4 +7,37 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ShapeAppearance.Album.Card" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <style name="ImageDetails.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:paddingStart">@dimen/margin_extra_extra_small</item>
+        <item name="android:paddingEnd">@dimen/margin_extra_extra_small</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="background">@color/details_background</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:text">@string/album_item_placceholder</item>
+        <item name="android:textSize">@dimen/details_small_text</item>
+    </style>
+
+    <style name="ImageDetails.Big" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:padding">@dimen/margin_extra_small</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="background">@color/details_background</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:text">@string/album_item_placceholder</item>
+    </style>
+
+    <style name="ImageDetails.XXBig" parent="ImageDetails.Big">
+        <item name="android:padding">0dp</item>
+    </style>
+
 </resources>
